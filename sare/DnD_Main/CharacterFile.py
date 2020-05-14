@@ -4,7 +4,14 @@
 # Embedded file name: C:\Users\Steve\workspace\DnD_Add_Detail\src\sare\DnD_Main\CharacterFile.py
 # Compiled at: 2014-01-10 02:44:47
 __doc__ = '\nCreated on Dec 6, 2013\n\n@author: Steve Sare\n'
+import codecs
 import os
+import xml.etree.ElementTree as ET
+
+from sare.DnD_Main.Loot import Loot
+from sare.DnD_Main.Power import Power
+from sare.DnD_Main.Rule import Rule
+
 
 class CharacterFile(object):
 
@@ -15,7 +22,6 @@ class CharacterFile(object):
         pass
 
     def mainExists(self):
-        import os.path
         fname = self.getCBLoaderMain()
         return os.path.isfile(fname)
 
@@ -32,11 +38,6 @@ class CharacterFile(object):
         return fname
 
     def process(self, fname, output):
-        import codecs
-        from sare.DnD_Main.Power import Power
-        from sare.DnD_Main.Loot import Loot
-        from sare.DnD_Main.Rule import Rule
-        import xml.etree.ElementTree as ET
         output.emit('Processing file: ' + fname)
         output.emit('Loading character and reference files...')
         referenceFileName = self.getCBLoaderMain()
@@ -59,7 +60,6 @@ class CharacterFile(object):
         newChar.write(newfile, encoding='UTF-8-sig', xml_declaration=False)
 
     def writeFlavor(self, flavor, parent):
-        import xml.etree.ElementTree as ET
         newFlavor = ET.Element('specific', dict([('name', 'Flavor')]))
         newFlavor.text = flavor.text
         parent.insert(0, newFlavor)

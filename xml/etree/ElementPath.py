@@ -4,6 +4,7 @@
 # Embedded file name: c:\python33\lib\xml\etree\ElementPath.py
 # Compiled at: 2013-10-28 11:37:44
 import re
+
 xpath_tokenizer_re = re.compile('(\'[^\']*\'|"[^"]*"|::|//?|\\.\\.|\\(\\)|[/.*:\\[\\]\\(\\)@=])|((?:\\{[^}]+\\})?[^/\\[\\]\\(\\)@=\\s]+)|\\s+')
 
 def xpath_tokenizer(pattern, namespaces=None):

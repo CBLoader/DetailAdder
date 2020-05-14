@@ -25,7 +25,6 @@ class Rule(object):
         output.emit('Rules written')
 
     def writeRule(self, ref, ruleElement):
-        from sare.DnD_Main.CharacterFile import CharacterFile
         charFile = CharacterFile()
         refroot = ref.getroot()
         for rule in refroot.iter('RulesElement'):
@@ -42,3 +41,5 @@ class Rule(object):
                     index = index + 1
 
                 continue
+
+from sare.DnD_Main.CharacterFile import CharacterFile

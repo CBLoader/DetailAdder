@@ -4,11 +4,18 @@
 # Embedded file name: Main.py
 # Compiled at: 2014-01-10 02:47:31
 __doc__ = '\nCreated on Dec 6, 2013\n\n@author: Steve Sare\n'
-from PyQt5 import QtGui
-from PyQt5.QtCore import QThread, QObject, pyqtSignal
-from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QLineEdit, QPushButton, QTextEdit, QGridLayout, QFileDialog
-from PyQt5.QtCore import *
 import os
+import sys
+import time
+
+from PyQt5 import QtGui
+from PyQt5.QtCore import *
+from PyQt5.QtCore import QObject, QThread, pyqtSignal
+from PyQt5.QtWidgets import (QApplication, QFileDialog, QGridLayout, QLabel,
+                             QLineEdit, QPushButton, QTextEdit, QWidget)
+
+from sare.DnD_Main.CharacterFile import CharacterFile
+
 
 class DnDAddDetail(QWidget):
 
@@ -82,7 +89,6 @@ class Processor(QObject):
         self._maxSteps = 20
 
     def process(self):
-        import time
         fname = self.getFileLocationBox()
         if fname:
             try:
@@ -102,8 +108,6 @@ class Processor(QObject):
 
 
 if __name__ == '__main__':
-    import sys
-    from sare.DnD_Main.CharacterFile import CharacterFile
     app = QApplication(sys.argv)
     AddDetailWidget = DnDAddDetail()
     charFile = CharacterFile()

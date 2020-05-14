@@ -23,7 +23,8 @@ class Loot(object):
         output.emit('L00t written')
 
     def writeLoot(self, ref, loot):
-        from sare.DnD_Main.Rule import Rule
         rule = Rule()
         for loot in loot.iter('RulesElement'):
             rule.writeRule(ref, loot)
+
+from sare.DnD_Main.Rule import Rule

@@ -20,8 +20,14 @@ __all__ = [
  'XMLParser', 'XMLTreeBuilder',
  'register_namespace']
 VERSION = '1.3.0'
-import sys, re, warnings, io, contextlib
+import contextlib
+import io
+import re
+import sys
+import warnings
+
 from . import ElementPath
+
 
 class ParseError(SyntaxError):
     pass
