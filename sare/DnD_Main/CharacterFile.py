@@ -20,6 +20,10 @@ class CharacterFile(object):
         return os.path.isfile(fname)
 
     def getCBLoaderMain(self):
+        if not os.path.exists('app.cfg'):
+            with open('app.cfg', 'w') as f:
+                f.write("""#Note: CBLoader 1.3.x and earlier used 'combined.dnd40'
+mainFile.Location=%appdata%\CBLoader\Cache\combined.dnd40.merged.xml""")
         config = open('app.cfg', 'r')
         contents = config.readline()
         while not contents.startswith('mainFile.Location'):
