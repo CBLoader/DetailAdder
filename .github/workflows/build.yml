@@ -24,11 +24,11 @@ jobs:
         pip install -r requirements.txt
     - name: Build
       run: |
-        pyinstaller -F main.py
+        pyinstaller -F main.py -n DetailAdder -i cbl_icon.ico
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: DetailAdder.exe
         # Directory containing files to upload
-        path: dist/main.exe
+        path: dist/DetailAdder.exe
