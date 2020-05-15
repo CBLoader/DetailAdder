@@ -102,7 +102,7 @@ class Processor(QObject):
                 self.output.emit('Processing complete in: ' + mins + ':' + secs)
                 self.output.emit('')
             except:
-                self.output.emit('Open Source File', "Failed to read file\n'%s'" % fname)
+                self.output.emit("Failed to read file\n'%s'" % fname)
 
         self.thread.terminate()
 
