@@ -11,7 +11,7 @@ import time
 from PyQt5 import QtGui
 from PyQt5.QtCore import *
 from PyQt5.QtCore import QObject, QThread, pyqtSignal
-from PyQt5.QtWidgets import (QApplication, QFileDialog, QGridLayout, QLabel,
+from PyQt5.QtWidgets import (QApplication, QFileDialog, QGridLayout, QLabel, QMessageBox,
                              QLineEdit, QPushButton, QTextEdit, QWidget)
 
 from sare.DnD_Main.CharacterFile import CharacterFile
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     AddDetailWidget = DnDAddDetail()
     charFile = CharacterFile()
     if not charFile.mainExists():
-        QtGui.QMessageBox.information(AddDetailWidget, 'Critical Error', 'No CBLoader main file located.  Please define a valid .main file in app.cfg.', QtGui.QMessageBox.Ok)
+        QMessageBox.information(AddDetailWidget, 'Critical Error', 'No CBLoader main file located.  Please define a valid .main file in app.cfg.', QMessageBox.Ok)
         sys.exit()
     else:
         AddDetailWidget.show()

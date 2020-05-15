@@ -30,7 +30,7 @@ mainFile.Location=%appdata%\CBLoader\Cache\combined.dnd40.merged.xml""")
             contents = config.readline()
 
         valuePointer = contents.index('=')
-        fname = contents[valuePointer + 1:len(contents)]
+        fname = contents[valuePointer + 1:len(contents)].strip()
         config.close()
         fname = os.path.expandvars(fname)
         return fname
